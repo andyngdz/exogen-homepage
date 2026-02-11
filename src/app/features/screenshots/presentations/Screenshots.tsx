@@ -3,8 +3,8 @@
 import Image from "next/image";
 
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
+import { screenshots } from "@/features/screenshots/services/screenshotsData";
 import { Card, CardBody } from "@heroui/react";
-import { screenshots } from "../services/screenshotsData";
 
 export default function Screenshots() {
   return (

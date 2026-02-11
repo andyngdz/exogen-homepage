@@ -1,8 +1,8 @@
 "use client";
 
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
+import { features } from "@/features/features-section/services/featuresData";
 import { Card, CardBody } from "@heroui/react";
-import { features } from "../services/featuresData";
 
 export default function Features() {
   return (
