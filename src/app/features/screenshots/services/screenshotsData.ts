@@ -1,24 +1,28 @@
 export interface Screenshot {
-  src: string;
+  src?: string;
+  videoSrc?: string;
+  videoMp4Src?: string;
+  type: "image" | "video";
   alt: string;
-  caption: string;
+  title: string;
+  description: string;
 }
 
 export const screenshots: Screenshot[] = [
   {
-    src: "/screenshots/screenshot-1.svg",
-    alt: "ExoGen main interface showing image generation",
-    caption: "Generate images with customizable parameters",
+    type: "video",
+    videoSrc: "/screenshots/dashboard_1080p.webm",
+    videoMp4Src: "/screenshots/dashboard_1080p.mp4",
+    src: "/screenshots/dashboard.png", // Fallback
+    alt: "ExoGen dashboard showing image generation workflow",
+    title: "An AI IDE Core",
+    description: "Generate images with customizable parameters, samplers, and model settings in a focused environment.",
   },
   {
-    src: "/screenshots/screenshot-2.svg",
-    alt: "ExoGen model browser with HuggingFace integration",
-    caption: "Browse and download models from HuggingFace",
-  },
-  {
-    src: "/screenshots/screenshot-3.svg",
-    alt: "ExoGen generation history and gallery",
-    caption: "View your generation history in a beautiful gallery",
+    type: "image",
+    src: "/screenshots/model_search.png",
+    alt: "ExoGen model browser with model search results",
+    title: "Discover better models fast",
+    description: "Browse and download models from HuggingFace without leaving the app.",
   },
 ];
-
