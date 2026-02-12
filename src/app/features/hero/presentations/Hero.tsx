@@ -6,8 +6,7 @@ import { Github } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center hero-gradient">
-      <div className="dot-grid absolute inset-0 pointer-events-none" />
+    <section className="relative min-h-[90vh] flex items-center justify-center hero-gradient overflow-hidden">
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <FadeIn>

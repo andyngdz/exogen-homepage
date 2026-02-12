@@ -7,7 +7,7 @@ import Screenshots from "./features/screenshots/presentations/Screenshots";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen">
       <Navbar />
       <Hero />
       <Features />

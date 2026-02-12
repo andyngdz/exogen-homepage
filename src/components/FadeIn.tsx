@@ -23,7 +23,7 @@ export function FadeIn({
   const variants = useMemo(
     () => ({
       hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-      visible: { opacity: 1, y: 0, transition: { duration, delay, ease: "easeOut" as any } },
+      visible: { opacity: 1, y: 0, transition: { duration, delay, ease: "easeOut" as const } },
     }),
     [shouldReduceMotion, delay, duration]
   );
