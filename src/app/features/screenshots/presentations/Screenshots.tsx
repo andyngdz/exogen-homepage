@@ -6,6 +6,12 @@ import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { PrismBorder } from "@/components/PrismBorder";
 import { screenshots } from "@/features/screenshots/services/screenshotsData";
 
+const mediaFocusStyle = {
+  objectPosition: "left top",
+  transform: "scale(2)",
+  transformOrigin: "top left",
+} as const;
+
 export default function Screenshots() {
   return (
     <section id="screenshots" className="section-border py-32 sm:py-48 relative overflow-hidden">
@@ -40,13 +46,14 @@ export default function Screenshots() {
                   <div className="relative rounded-3xl bg-zinc-900/50 shadow-2xl backdrop-blur-sm border border-white/5 overflow-hidden">
                     <PrismBorder className="shadow-2xl shadow-black/50 rounded-3xl">
                       <div className="relative aspect-16/10 bg-zinc-950 w-full h-full">
-                        {screenshot.type === 'video' && screenshot.videoSrc ? (
+                        {screenshot.type === 'video' && (screenshot.videoMp4Src || screenshot.videoSrc) ? (
                           <video
                             autoPlay
                             loop
                             muted
                             playsInline
                             className="w-full h-full object-cover"
+                            style={mediaFocusStyle}
                             poster={screenshot.src}
                           >
                             {screenshot.videoMp4Src && <source src={screenshot.videoMp4Src} type="video/mp4" />}
@@ -58,6 +65,7 @@ export default function Screenshots() {
                             alt={screenshot.alt}
                             fill
                             className="object-cover"
+                            style={mediaFocusStyle}
                             sizes="(max-width: 1024px) 100vw, 60vw"
                           />
                         )}
