@@ -13,7 +13,7 @@ export const screenshots: Screenshot[] = [
     type: "video",
     videoMp4Src: "/screenshots/dashboard.mp4",
     alt: "ExoGen dashboard showing image generation workflow",
-    title: "An AI IDE Core",
+    title: "Generate with precision",
     description: "Generate images with customizable parameters, samplers, and model settings in a focused environment.",
   },
   {

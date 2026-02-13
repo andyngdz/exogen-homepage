@@ -2,22 +2,42 @@
 
 import { FadeIn } from "@/components/FadeIn";
 import { Button, Link } from "@heroui/react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { Github } from "lucide-react";
 
+interface LatestReleaseApiResponse {
+  latestVersion?: string;
+}
+
+async function fetchLatestRelease(): Promise<string | undefined> {
+  const response = await axios.get<LatestReleaseApiResponse>(
+    "/api/releases/latest"
+  );
+  return response.data.latestVersion;
+}
+
 export default function Hero() {
+  const { data: latestVersion } = useQuery({
+    queryKey: ["latest-release"],
+    queryFn: fetchLatestRelease,
+  });
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center hero-gradient overflow-hidden">
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <FadeIn>
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-white/10 bg-white/3 text-sm text-zinc-400">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            v1.19.0 — Now available
-          </div>
-        </FadeIn>
+        {latestVersion ? (
+          <FadeIn>
+            <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-white/10 bg-white/3 text-sm text-zinc-400">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              {latestVersion} - Now available
+            </div>
+          </FadeIn>
+        ) : null}
 
         <FadeIn delay={0.1}>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6">
