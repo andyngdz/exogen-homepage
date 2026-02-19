@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://exogenart.com"),
   title: "ExoGen — Generate AI Images Locally",
   description:
     "A privacy-focused desktop application for generating AI images locally using Stable Diffusion. 100% private, free forever, and fully offline.",
@@ -18,6 +19,21 @@ export const metadata: Metadata = {
     description:
       "Generate stunning AI images on your own machine. Private, free, and offline.",
     type: "website",
+    images: [
+      {
+        url: "/background.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "ExoGen — Generate AI Images Locally",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ExoGen — Generate AI Images Locally",
+    description:
+      "Generate stunning AI images on your own machine. Private, free, and offline.",
+    images: ["/background.jpeg"],
   },
 };
 
